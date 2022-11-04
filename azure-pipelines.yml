@@ -37,3 +37,10 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1 (43d82ba2-041c-4da5-9154-1220e18e1b31)'
+    appType: 'webApp'
+    appName: 'Jaywebappte'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
